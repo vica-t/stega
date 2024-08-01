@@ -1,0 +1,39 @@
+<!-- upon recieving generate symmetric key, encode with rsa key and send to server -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <title>Test</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+</head>
+
+<body>
+
+    <form id="form">
+        <textarea id="prompt" name="prompt" required></textarea><br>
+
+        <input type="radio" id="mode-option2" name="style" value="natural" checked>
+        <label for="mode-option2">natural</label>
+        <input type="radio" id="mode-option1" name="style" value="vivid">
+        <label for="mode-option1">vivid</label><br>
+
+        <input type="radio" id="size-option1" name="size" value="1024x1024" checked>
+        <label for="size-option1">1024x1024</label>
+        <input type="radio" id="size-option2" name="size" value="1024x1792">
+        <label for="size-option2">1024x1792</label>
+        <input type="radio" id="size-option3" name="size" value="1792x1024">
+        <label for="size-option3">1792x1024</label><br>
+
+        <button type="submit">Insert data</button>
+    </form>
+
+    <script src="/static/js/test.js?v={{cache_buster}}"></script>
+
+</body>
+
+</html>

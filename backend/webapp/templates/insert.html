@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert data into a file</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+
+
+    <script src="/static/js/comon.js?v={{ cache_buster }}"></script>
+    <!--<script src="communication.js?v={{cache_buster}}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="/static/js/actionFuncs.js?v={{cache_buster}}"></script>
+    <script src="/static/js/resetSessionTimeout.js?v={{cache_buster}}"></script>
+    <script src="/static/js/insertPage.js?v={{cache_buster}}"></script>
+
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css?v={{cache_buster}}" />
+</head>
+
+<body>
+    <header>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="home" class="logo active"><img src="/static/images/stega2.png" alt="Stega Logo"></a>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="home">Home</a>
+                <a href="plans">Plans</a>
+                <a href="about">About</a>
+                <a href="how-to-use">How to use</a>
+                <a href="logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="spacer"></div>
+
+    <main>
+        <div class="navigation">
+            <a href="/home"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+        </div>
+        <!-- text field / upload file, upload file / ai api, intended users filed -->
+        <div id="insert-action-block" class="programWrapper">
+            <h1>Insert data into a file</h1>
+            <form id="insert-action-form{{ action_form_id_addon }}" method="post">
+                <input type="hidden" name="form-type" value="insert">
+                <!-- text field -->
+                <!-- or -->
+                <h2>Choose what to hide</h2>
+                <!-- upload data file -->
+                <label for="data-upload-block">Type your text:</label>
+                <div id="data-upload-block">
+                    <textarea id="data-textarea" name="data-textarea" rows="10" cols="50"></textarea>
+                    <div>or</div>
+                    <input type="file" id="data-file" name="data-file" accept=".jpg,.jpeg,.png,.gif,.txt,.pdf,.docx,.xlsx,.pptx,.bmp,.mp3,.wav,.mp4,.mov,.csv,.json,.rtf,.epub,.zip">
+                </div>
+
+                <!-- <div class="deviderLine"></div> -->
+                <!-- upload medium file -->
+                <!-- or -->
+                <h2>Choose where you want to hide</h2>
+                <!-- api -->
+                <label for="medium-upload-block">File to insert into:</label>
+                <div id="medium-upload-block">
+                    <input type="file" id="medium-file" name="medium-file" accept=".png">
+                </div>
+                <div>
+                    or
+                </div>
+                <div id="medium-generate-block">
+                    <label for="prompt">Describe an image to generate with AI:</label>
+                    <textarea id="prompt" name="prompt" maxlength="1000"></textarea>
+                    <div class="aiPictureType">
+                        <input type="radio" id="mode-option1" name="style" value="natural" checked>
+                        <label for="mode-option1">natural</label>
+                        <input type="radio" id="mode-option2" name="style" value="vivid">
+                        <label for="mode-option2">vivid</label>
+                    </div>
+                    <div class="aiPictureSize">
+                        <input type="radio" id="size-option1" name="size" value="256x256" checked>
+                        <label for="size-option1">256x256</label>
+                        <input type="radio" id="size-option2" name="size" value="512x512">
+                        <label for="size-option2">512x512</label>
+                        <input type="radio" id="size-option3" name="size" value="1024x1024">
+                        <label for="size-option3">1024x1024</label>
+                    </div>
+
+                    <div id="image-container"></div>
+                    <input type="hidden" id="generated-image" name="generated-image">
+                    <button type="button" id="generate-image-button">Generate Image</button>
+                </div>
+
+                <!-- <div class="deviderLine"></div> -->
+                <h2>Share it with someone</h2>
+                <!-- intended user field -->
+                <div id="intended-user-block">
+                    <label for="intended-user0">Enter Email of the user you want to share your secret data with. Enter your email if intended for personal use. At least one is required.</label>
+                    <input type="text" id="intended-user0" name="intended-user0" required placeholder="youfriends@email.com">
+
+                    <label for="intended-user1">You can share with someone else</label>
+                    <input type="text" id="intended-user1" name="intended-user1" placeholder="anotherfriends@email.com">
+
+                    <label for="intended-user1">And one more if you wish :)</label>
+                    <input type="text" id="intended-user2" name="intended-user2" placeholder="onemorefriends@email.com">
+                </div><br>
+                <button id="submit-insert-data" type="submit">Insert data</button>
+            </form>
+
+            <!-- download ready file -->
+            <a id="download-link" class="hidden"></a>
+
+            <!-- how many left block -->
+            <div id="plan-info-block">{{ plan_info_block_content|safe }}</div>
+
+        </div>
+
+        <div id="loader-container">
+            <div class="loader-background"></div>
+            <span class="loader"></span>
+        </div>
+    </main>
+</body>
+
+</html>

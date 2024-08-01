@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose plan</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <script src="/static/js/resetSessionTimeout.js?v={{cache_buster}}"></script>
+    <script src="/static/js/comon.js?v={{ cache_buster }}"></script>
+    <script src="/static/js/plansPage.js?v={{ cache_buster }}"></script>
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/css/styles.css?v={{cache_buster}}" />
+</head>
+
+<body>
+    <header>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="home" class="logo active"><img src="/static/images/stega2.png" alt="Stega Logo"></a>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="home">Home</a>
+                <a href="plans">Plans</a>
+                <a href="about">About</a>
+                <a href="how-to-use">How to use</a>
+                <a href="logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="spacer"></div>
+
+    <main>
+        <div class="navigation">
+            <a href="/home"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+        </div>
+        <div class="programWrapper">
+            <h1>Our plans</h1>
+            <div class="plans">
+                {% for plan in plans %}
+                <div class="plan-form-div {% if plan.planId > currentPlanId %}plan-option-div{% elif plan.planId == currentPlanId %}current-plan-div{% else %}inactive-plan-div{% endif %}">
+                    <form class="plan-form {% if plan.planId > currentPlanId %}plan-option{% elif plan.planId == currentPlanId %}current-plan{% else %}inactive-plan{% endif %}">
+                        <h2>{{ plan.planName }}</h2>
+                        {% if plan.filesPerDay >= 0 %}
+                        <div class="planDescription">Create up to {{ plan.filesPerDay }} files a day</div>
+                        {% else %}
+                        <div class="planDescription">Create an unlimited amount of files</div>
+                        {% endif %}
+                        <div class="planPrice">{{ plan.price }}$</div>
+                        <button type="submit">{% if plan.planId == currentPlanId %}Your plan{% else %}Select{% endif %}</button>
+                        <input type="hidden" name="plan-id" value={{ plan.planId }}>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--
+        bronze, silver, gold, platinum
+
+        title
+        benefits
+        price with button
+
+    
+        <div>
+            <form class="plan-form">
+                <h2>Bronze</h2>
+                <br>
+                <p>- a</p>
+                <p>- a</p>
+                <p>- a</p>
+                <br>
+                <input type="hidden" name="planId" value=0>
+                <button type="submit">0$</button>
+            </form>
+        </div>
+        <br><br>
+        <div>
+            <form class="plan-form">
+                <h2>Silver</h2>
+                <br>
+                <p>- a</p>
+                <p>- a</p>
+                <p>- a</p>
+                <br>
+                <input type="hidden" name="planId" value=1>
+                <button type="submit">0$</button>
+            </form>
+        </div>
+        <br><br>
+        <div>
+            <form class="plan-form">
+                <h2>Gold</h2>
+                <br>
+                <p>- a</p>
+                <p>- a</p>
+                <p>- a</p>
+                <br>
+                <input type="hidden" name="planId" value=2>
+                <button type="submit">0$</button>
+            </form>
+        </div>
+        <br><br>
+        <div>
+            <form class="plan-form">
+                <h2>Platinum</h2>
+                <br>
+                <p>- a</p>
+                <p>- a</p>
+                <p>- a</p>
+                <br>
+                <input type="hidden" name="planId" value=3>
+                <button type="submit">0$</button>
+            </form>
+        </div>
+    -->
+    </main>
+
+</body>
+
+</html>

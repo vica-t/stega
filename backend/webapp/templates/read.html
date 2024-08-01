@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <title>Read data from a file</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <!--<script src="communication.js?v={{cache_buster}}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="/static/js/metadataHandler.js?v={{cache_buster}}"></script>
+    <script src="/static/js/actionFuncs.js?v={{cache_buster}}"></script>
+    <script src="/static/js/resetSessionTimeout.js?v={{cache_buster}}"></script>
+    <script src="/static/js/comon.js?v={{ cache_buster }}"></script>
+    <script src="/static/js/readPage.js?v={{cache_buster}}"></script>
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css?v={{cache_buster}}" />
+</head>
+
+<body>
+    <header>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="home" class="logo active"><img src="/static/images/stega2.png" alt="Stega Logo"></a>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="home">Home</a>
+                <a href="plans">Plans</a>
+                <a href="about">About</a>
+                <a href="how-to-use">How to use</a>
+                <a href="logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="spacer"></div>
+
+    <main>
+        <div class="navigation">
+            <a href="/home"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+        </div>
+        <!-- upload file -->
+        <div id="read-action-block" class="programWrapper">
+            <h1>Read data from a file</h1>
+            <form id="read-action-form" method="post">
+                <input type="hidden" name="form-type" value="read">
+                <!-- upload medium file -->
+                <label for="modified-file">File to read from:</label>
+                <div id="modified-file-upload-block">
+                    <input type="file" id="modified-file" name="modified-file" accept=".png" required>
+                </div>
+                <div class="submit-read">
+                    <button id="submit-read-data" type="submit">Read data</button>
+                    <!-- download ready file -->
+                    <a id="download-link" style="display: none;"></a>
+                </div>
+            </form>
+            <!-- <button class="return-to-options">Back</button> -->
+
+        </div>
+
+
+        <div id="loader-container">
+            <div class="loader-background"></div>
+            <span class="loader"></span>
+        </div>
+    </main>
+</body>
+
+</html>

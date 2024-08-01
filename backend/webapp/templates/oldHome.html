@@ -1,0 +1,88 @@
+<!-- upon recieving generate symmetric key, encode with rsa key and send to server -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--<script src="communication.js?v={{cache_buster}}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="/static/js/metadataHandler.js?v={{cache_buster}}"></script>
+    <script src="/static/js/resetSessionTimeout.js?v={{cache_buster}}"></script>
+    <script src="/static/js/homePage.js?v={{cache_buster}}"></script>
+</head>
+
+<body>
+    <div id="options-block">
+        <!-- encrypt with button -->
+        <div id="insert-option-block">
+            <h2>Insert data into a file</h2>
+            <button id="insert-option-button">Insert data</button>
+        </div>
+
+        <!-- decrypt with button -->
+        <div id="read-option-block">
+            <h2>Read data from a file</h2>
+            <button id="read-option-button">Read data</button>
+        </div>
+    </div>
+
+    <div id="actions-block" style="display: none;">
+        <!-- text field / upload file, upload file / ai api, intended users filed -->
+        <div id="insert-action-block">
+            <h2>Insert data into a file</h2>
+            <form id="insert-action-form" method="post">
+                <input type="hidden" name="form-type" value="insert">
+                <!-- text field -->
+                <!-- or -->
+                <!-- upload data file -->
+                <label for="data-upload-block">Data to insert:</label><br>
+                <div id="data-upload-block">
+                    <textarea id="data-textarea" name="data-textarea" rows="10" cols="50" style="overflow: auto;"></textarea><br> or
+                    <br>
+                    <input type="file" id="data-file" name="data-file"><br><br>
+                </div>
+                <!-- upload medium file -->
+                <!-- or -->
+                <!-- api -->
+                <label for="medium-upload-block">File to insert into:</label><br>
+                <div id="medium-upload-block">
+                    <input type="file" id="medium-file" name="medium-file" accept=".png"><br><br>
+                </div>
+                <!-- intended user field -->
+                <label for="intended-user-block">Intended users: (enter your username if intended for personal use)</label><br>
+                <div id="intended-user-block">
+                    <input type="text" id="intended-user0" name="intended-user0" required><br>
+                    <input type="text" id="intended-user1" name="intended-user1"><br>
+                    <input type="text" id="intended-user2" name="intended-user2"><br><br>
+                </div>
+                <button id="submit-insert-data" type="submit">Insert data</button>
+            </form>
+            <!-- <button class="return-to-options">Back</button> -->
+        </div>
+
+        <!-- upload file -->
+        <div id="read-action-block">
+            <h2>Read data from a file</h2>
+            <form id="read-action-form" method="post">
+                <input type="hidden" name="form-type" value="read">
+                <!-- upload medium file -->
+                <label for="modified-file-upload-block">File to read from:</label><br>
+                <div id="modified-file-upload-block">
+                    <input type="file" id="modified-file" name="modified-file" accept=".png" required><br><br>
+                </div>
+                <button id="submit-read-data" type="submit">Read data</button>
+            </form>
+            <!-- <button class="return-to-options">Back</button> -->
+        </div>
+
+        <!-- download ready file -->
+        <a id="download-link" style="display: none;"></a>
+
+        <br><br><button id="return-to-options-button">Back</button>
+    </div>
+
+</body>
+
+</html>

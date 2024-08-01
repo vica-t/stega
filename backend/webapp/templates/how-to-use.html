@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 'public': (65537, 260950584361), 'private': (197480938246, 260950584361) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <!--<script> 
+        var e = "{{ e }}";
+        var n = "{{ n }}";
+        console.log(e);
+        console.log(n);
+    </script>-->
+    <!--<script src="communication.js?v={{cache_buster}}"></script>-->
+    <script src="/static/js/comon.js?v={{ cache_buster }}"></script>
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/css/styles.css?v={{cache_buster}}" />
+</head>
+
+<body>
+    <header>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="home" class="logo active"><img src="/static/images/stega2.png" alt="Stega Logo"></a>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="home">Home</a>
+                <a href="plans">Plans</a>
+                <a href="about">About</a>
+                <a href="how-to-use">How to use</a>
+                <a href="logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="spacer"></div>
+
+    <main>
+        <div id="text-page" class="programWrapper">
+            <h1>How to use</h1>
+            <div>
+                <p>
+                    Hello, dear user!
+                </p>
+                <p>
+                    If you're looking for a way to hide secret information so that no one will even suspect it's there, you've come to the right place! STEGA is a website that embodies the phrase "hidden in plain sight," safely hiding your information within a simple image,
+                    making it visible to everyone but seen by no one!
+                </p>
+                <p>
+                    To start using the site, you need to register with a unique username and password. Upon logging in, you will be directed to the authentication page, where you will enter the username and password you initially registered with. Alternatively, if this is
+                    your first visit to the site, click on the "Don't have an account?" button to sign up. After logging in, if it's your first time, you will be taken to a screen where you need to choose your subscription type. Click on the price button
+                    to select the appropriate subscription type and pay for it. Each subscription has different limits and prices, so choose the one that meets your needs!
+                </p>
+                <p>
+                    After selecting your subscription, you will be taken to the home screen, where the site's services will be displayed. You can choose between embedding information into an image or extracting it and proceed to the appropriate page. On the embedding page,
+                    you will be asked to enter the information or upload the file you wish to hide. Additionally, you need to upload the image (in PNG format) into which the information will be embedded, or use the artificial intelligence to create an
+                    image with it. Finally, you must enter up to three usernames for whom the secret information is intended, and only they will be able to extract the information from the image, so make sure the names are entered correctly. Click the
+                    INSERT button and wait while the magic happens! When the new image is ready, a button will appear on the screen; click it to download the image to your computer. On the data extraction screen, you will be asked to upload the image
+                    containing secret information, and if the information is intended for you, a button will appear within a few moments to download a ZIP folder containing the secret information.
+                </p>
+                <p>
+                    You can upgrade your subscription type by going to the PLANS page through the menu. From there, the process is the same as your first login to the site – choose a subscription type, click the button, and you've been upgraded!
+                </p>
+                <p>
+                    Here several tips and recommendations for the user:
+                    <ul>
+                        <li>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <div class="liMultilineTxt">When entering the usernames for whom the information is intended, include your username to retain access to the secret information.</div>
+                        </li>
+                        <li>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <div class="liMultilineTxt">Do not convert the image to a different format – the information will be erased, and converting the image back to PNG format will not restore the information.</div>
+                        </li>
+                        <li>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <div class="liMultilineTxt">If you intend to send the processed image, make sure to send it through programs that do not compress the image or change its format, or compress it into a ZIP file. Some popular suitable applications include: Email attachment,
+                                Google Drive upload, Dropbox, OneDrive...</div>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

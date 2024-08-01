@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 'public': (65537, 260950584361), 'private': (197480938246, 260950584361) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About STEGA</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <!--<script> 
+        var e = "{{ e }}";
+        var n = "{{ n }}";
+        console.log(e);
+        console.log(n);
+    </script>-->
+    <!--<script src="communication.js?v={{cache_buster}}"></script>-->
+    <script src="/static/js/comon.js?v={{ cache_buster }}"></script>
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/css/styles.css?v={{cache_buster}}" />
+</head>
+
+<body>
+    <header>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="home" class="logo active"><img src="/static/images/stega2.png" alt="Stega Logo"></a>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="home">Home</a>
+                <a href="plans">Plans</a>
+                <a href="about">About</a>
+                <a href="how-to-use">How to use</a>
+                <a href="logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="spacer"></div>
+
+    <main>
+        <div id="text-page" class="programWrapper">
+            <h1>About Us</h1>
+            <div>
+                <p>
+                    In the digital age, the ease of data transfer has underscored the critical importance of privacy protection. With the rise of cyber threats, espionage technologies, surveillance, and data theft, people face significant challenges in safeguarding sensitive
+                    information from third-party theft. Traditional data encryption methods, while somewhat effective, do not conceal the existence of the information from unauthorized eyes, often making it a target for online thieves. As a result, there
+                    is a growing need for encryption and information concealment methods that offer strong protection against such threats while ensuring secure and discreet data protection.
+                </p>
+                <p>
+                    STEGA allows users to hide their sensitive information. The website encrypts the user-provided data using an advanced encryption algorithm and then embeds it within an image using steganographic encryption in a way that causes no visible change detectable
+                    by the human eye. Additionally, the website employs a data authentication mechanism, ensuring that unauthorized individuals cannot access the hidden information even if they obtain the image containing the data, and verifying that
+                    the image has not been altered and the information it conceals remains reliable and unchanged. The application also allows for data extraction from an image created with it, provided the extraction is performed by an authorized individual.
+
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
