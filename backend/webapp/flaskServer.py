@@ -100,17 +100,6 @@ UPLOAD_FOLDER_PATH = os.path.join(BASE_DIR, 'static', 'uploads')
 os.makedirs(UPLOAD_FOLDER_PATH, exist_ok=True)
 emptyUploadFolder()
 
-#
-@app.route('/a/b', methods=['GET'])
-async def a():
-    print('/a/b')
-    session['a'] = 'b'
-    return redirect('/b')
-
-@app.route('/b', methods=['GET'])
-async def b():
-    print(session['name'])
-    return '',200
 
 
 
