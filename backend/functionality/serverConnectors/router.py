@@ -5,8 +5,6 @@
 # gets answer back
 # sends answer to waiter
 
-# occasionally tries to connect to disconnected worker
-
 
 import asyncio
 import os
